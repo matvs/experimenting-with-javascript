@@ -67,7 +67,7 @@ promise1.then(data => {
   return promise2.then(data => {
     log(data);
     if(data == 3){
-		return Promise.reject()
+	return Promise.reject()
     }
   });
 }).then(log)
@@ -77,7 +77,7 @@ promise1.then(data => {
   return promise2.then(data => {
     log(data);
     if(data == 3){
-		return Promise.reject()
+	return Promise.reject()
     }
     return Promise.resolve()
   });
@@ -88,7 +88,7 @@ promise1.then(data => {
   return promise3.then(data => {
     log(data);
     if(data == 3){
-		return Promise.reject()
+	return Promise.reject()
     }
   });
 }).then(log)
