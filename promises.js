@@ -42,3 +42,5 @@ promise1.then(data => {
     return all();
   });
 }).then(log)
+
+Promise.all([promise1, promise2, all()]).then(log)
