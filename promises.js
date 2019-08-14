@@ -25,6 +25,23 @@ promise1.then(data => {
   });
 }).then(log)
 
+promise1.then(data => {
+  log(data);
+  return promise2.then(data => {
+    log(data);
+    return 'fixed value';
+  });
+}).then(log)
+
+promise1.then(data => {
+  log(data);
+  return promise2.then(data => {
+    log(data);
+    return 'fixed value';
+  });
+}).then(log)
+  .then(() => promise3)
+  .then(log)
 
 promise1.then(data => {
   log(data);
@@ -44,3 +61,35 @@ promise1.then(data => {
 }).then(log)
 
 Promise.all([promise1, promise2, all()]).then(log)
+
+promise1.then(data => {
+  log(data);
+  return promise2.then(data => {
+    log(data);
+    if(data == 3){
+		return Promise.reject()
+    }
+  });
+}).then(log)
+
+promise1.then(data => {
+  log(data);
+  return promise2.then(data => {
+    log(data);
+    if(data == 3){
+		return Promise.reject()
+    }
+    return Promise.resolve()
+  });
+}).then(log)
+
+promise1.then(data => {
+  log(data);
+  return promise3.then(data => {
+    log(data);
+    if(data == 3){
+		return Promise.reject()
+    }
+  });
+}).then(log)
+
