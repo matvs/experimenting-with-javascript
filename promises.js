@@ -19,6 +19,11 @@ promise1.then(data => {
 
 promise1.then(data => {
   log(data);
+  return promise2.then(() => {});
+}).then(log)
+
+promise1.then(data => {
+  log(data);
   return promise2.then(data => {
     log(data);
     return promise3;
