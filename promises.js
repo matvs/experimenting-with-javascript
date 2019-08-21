@@ -101,7 +101,7 @@ promise1.then(data => {
 var FooService = function(){
     var self = this;
     self.load = function(){
-    	self.getImage.then(() => {
+    	self.getImage().then(() => {
 	    console.log(self.image)
 	})
     }	
