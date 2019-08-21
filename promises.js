@@ -98,3 +98,21 @@ promise1.then(data => {
   });
 }).then(log)
 
+var FooService = function(){
+    var self = this;
+    self.load = function(){
+    	self.getImage.then(() => {
+	    console.log(self.image)
+	})
+    }	
+	
+    self.getImage = function(){
+	let getImagePromise = createPromise(1000);
+	return getImagePromise.then(() => {
+	   self.image = { url: 'I have a IMAGE'}
+	})
+    }
+}
+
+var fooService = new FooService();
+fooService.load();
