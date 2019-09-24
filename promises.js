@@ -116,3 +116,21 @@ var FooService = function(){
 
 var fooService = new FooService();
 fooService.load();
+
+var Car = function(brand){
+    this.description = { 
+        brand: brand 
+    };
+}
+
+Car.prototype.onStateChange = function(){
+    var desc = this.description;
+    this.loadNewDescription.then(() => {
+        this.description = {
+	    brand: "Skoda"
+	}
+	console.log(desc);
+    })
+}
+
+Car.prototype.loadNewDescription = createPromise(100);
